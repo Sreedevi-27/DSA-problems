@@ -12,4 +12,12 @@ class TwoSumTest {
         int[] actualOutputArray = TwoSum.twoSum(inputArray, 9);
         assertArrayEquals(expectedOutputArray, actualOutputArray);
     }
+
+    @Test
+    void twoSumWithNegatives(){
+        int[] inputArray = new int[]{-1,-2,2,-3};
+        int[] expectedOutputArray = new int[]{3,0};
+        int[] actualOutputArray = TwoSum.twoSum(inputArray, -4);
+        assertArrayEquals(expectedOutputArray, actualOutputArray);
+    }
 }

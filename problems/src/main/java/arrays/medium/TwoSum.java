@@ -20,8 +20,6 @@ Only one valid answer exists.
 package arrays.medium;
 
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Hashtable;
 import java.util.Map;
 
 public class TwoSum {

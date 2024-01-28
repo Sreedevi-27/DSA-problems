@@ -12,4 +12,12 @@ class Sort012Test {
         int[] actualOutputArray = Sort012.sortColors(inputArray);
         assertArrayEquals(expectedOutputArray, actualOutputArray);
     }
+
+    @Test
+    void sortArrayWithSingleElement(){
+        int[] inputArray = new int[]{2};
+        int[] expectedOutputArray = new int[]{2};
+        int[] actualOutputArray = Sort012.sortColors(inputArray);
+        assertArrayEquals(expectedOutputArray, actualOutputArray);
+    }
 }
