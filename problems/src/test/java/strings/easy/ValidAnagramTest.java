@@ -18,7 +18,7 @@ class ValidAnagramTest {
     void testWithNonValidAnagramStrings(){
         String inputString1 = "rat";
         String inputString2 = "car";
-        boolean expectedOutput = falseS;
+        boolean expectedOutput = false;
         boolean actualOutput = ValidAnagram.isAnagram(inputString1, inputString2);
         assertEquals(expectedOutput, actualOutput);
     }
