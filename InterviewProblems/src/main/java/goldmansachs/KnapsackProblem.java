@@ -25,7 +25,7 @@ public class KnapsackProblem {
         return Math.max(take, notTake);
     }
 
-    public static int memoizationSolution(int[] weight, int[] value, int W, int index, int[][] dp){
+        public static int memoizationSolution(int[] weight, int[] value, int W, int index, int[][] dp){
         if(index==0){
             if(weight[index]<=W) return value[index];
             return 0;
