@@ -69,14 +69,7 @@ public class GeeksTraining {
             for(int j=0; j<4; j++) dp[i][j] = -1;
         }
 
-        int ans = memoizationHelper(arr,row-1,3, dp);
-        for(int i=0; i<row; i++){
-            for(int j=0; j<4; j++){
-                System.out.print(dp[i][j] +" *** ");
-            }
-            System.out.println();
-        }
-        return ans;
+        return memoizationHelper(arr,row-1,3, dp);
     }
 
 
@@ -96,7 +89,7 @@ public class GeeksTraining {
         return dp[index][last];
     }
 
-    public int tabulation(int[][] arr){
+    public static int tabulation(int[][] arr){
         int row = arr.length;
         int[][] dp = new int[row][4];
 
@@ -124,7 +117,7 @@ public class GeeksTraining {
         return dp[row-1][3];
     }
 
-    public int tabulationSpaceOptimisation(int[][] arr){
+    public static int tabulationSpaceOptimisation(int[][] arr){
         int row = arr.length;
         int[] dp = new int[4];
 

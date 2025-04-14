@@ -32,7 +32,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MinimumPathTriangle {
-    public int memoization(List<List<Integer>> triangle){
+    public static int memoization(List<List<Integer>> triangle){
         List<List<Integer>> dp = new ArrayList<>();
         int row = triangle.size();
         for(int i=0; i<row; i++){
@@ -45,7 +45,7 @@ public class MinimumPathTriangle {
         return memoizationHelper(triangle, dp, 0, row-1, 0);
     }
 
-    public int memoizationHelper(List<List<Integer>> triangle, List<List<Integer>> dp, int row, int size, int index){
+    public static int memoizationHelper(List<List<Integer>> triangle, List<List<Integer>> dp, int row, int size, int index){
         if(row==size) return triangle.get(row).get(index);
         int currIndexSize = triangle.get(row).size();
         if(index>=currIndexSize) return (int) Math.pow(10, 9);
@@ -59,7 +59,7 @@ public class MinimumPathTriangle {
         return minValue;
     }
 
-    public int tabulation(List<List<Integer>> triangle){
+    public static int tabulation(List<List<Integer>> triangle){
         List<List<Integer>> dp = new ArrayList<>();
         int row = triangle.size();
         for(int i=0; i<row; i++){
@@ -89,7 +89,7 @@ public class MinimumPathTriangle {
     }
 
 
-    public int tabulationSpaceOptimized(List<List<Integer>> triangle){
+    public static int tabulationSpaceOptimized(List<List<Integer>> triangle){
         int row = triangle.size();
         List<Integer> prev = new ArrayList<>();
 

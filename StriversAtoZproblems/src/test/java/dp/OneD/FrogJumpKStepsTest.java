@@ -36,4 +36,20 @@ public class FrogJumpKStepsTest {
         int actualOutput = FrogJumpKSteps.tabulation(3, inputArray);
         assertEquals(expectedOutput, actualOutput);
     }
+
+    @Test
+    public void testTabulationSpaceOptimized(){
+        int expectedOutput = 40;
+        int[] inputArray = new int[]{10,40,30,10};
+        int actualOutput = FrogJumpKSteps.tabulationSpaceOptimised(2, inputArray);
+        assertEquals(expectedOutput, actualOutput);
+    }
+
+    @Test
+    public void testTabulationSpaceOptimized1(){
+        int expectedOutput = 50;
+        int[] inputArray = new int[]{10,40,50,20,60};
+        int actualOutput = FrogJumpKSteps.tabulationSpaceOptimised(2, inputArray);
+        assertEquals(expectedOutput, actualOutput);
+    }
 }

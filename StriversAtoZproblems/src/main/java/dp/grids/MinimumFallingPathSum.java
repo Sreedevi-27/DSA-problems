@@ -28,7 +28,7 @@ package dp.grids;
 import java.util.Arrays;
 
 public class MinimumFallingPathSum {
-    public int memoization(int[][] matrix) {
+    public static int memoization(int[][] matrix) {
         int r = matrix.length;
         int c = matrix[0].length;
 
@@ -42,7 +42,7 @@ public class MinimumFallingPathSum {
         return min;
     }
 
-    public int memoizationHelper(int[][] matrix, int[][] dp, int r, int c) {
+    public static int memoizationHelper(int[][] matrix, int[][] dp, int r, int c) {
         if (c < 0 || c >= matrix[0].length) return (int) Math.pow(10, 9);
         if (r == 0) return matrix[r][c];
         if (dp[r][c] != Integer.MAX_VALUE) return dp[r][c];
@@ -54,7 +54,7 @@ public class MinimumFallingPathSum {
         return dp[r][c];
     }
 
-    public int tabulation(int[][] matrix) {
+    public static int tabulation(int[][] matrix) {
         int r = matrix.length;
         int c = matrix[0].length;
         int[][] dp = new int[r][c];
@@ -84,7 +84,7 @@ public class MinimumFallingPathSum {
     }
 
 
-    public int tabulationSpaceOptimized(int[][] matrix) {
+    public static int tabulationSpaceOptimized(int[][] matrix) {
         int r = matrix.length;
         int c = matrix[0].length;
         int[] prev = new int[c];

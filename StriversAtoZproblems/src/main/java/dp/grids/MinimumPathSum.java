@@ -26,7 +26,7 @@ package dp.grids;
 import java.util.Arrays;
 
 public class MinimumPathSum {
-    public int memoization(int[][] grid){
+    public static int memoization(int[][] grid){
         int r = grid.length;
         int c = grid[0].length;
         int[][] dp = new int[r][c];
@@ -36,7 +36,7 @@ public class MinimumPathSum {
         return memoizationHelper(grid, dp, r-1, c-1);
     }
 
-    public int memoizationHelper(int[][] grid, int[][] dp, int r, int c){
+    public static int memoizationHelper(int[][] grid, int[][] dp, int r, int c){
         if(r<0 || c<0) return (int)(Math.pow(10, 9));
         if(r==0 && c==0) return grid[0][0];
         if(dp[r][c]!=-1) return dp[r][c];
@@ -47,7 +47,7 @@ public class MinimumPathSum {
     }
 
 
-    public int tabulation(int[][] grid){
+    public static int tabulation(int[][] grid){
         int r = grid.length;
         int c = grid[0].length;
         int[][] dp = new int[r][c];
@@ -68,7 +68,7 @@ public class MinimumPathSum {
         return dp[r-1][c-1];
     }
 
-    public int tabulationSpaceOptimized(int[][] grid){
+    public static int tabulationSpaceOptimized(int[][] grid){
         int row = grid.length;
         int col = grid[0].length;
         int[] prevRow = new int[col];

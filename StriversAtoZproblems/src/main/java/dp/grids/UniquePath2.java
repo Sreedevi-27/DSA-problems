@@ -33,7 +33,7 @@ package dp.grids;
 import java.util.Arrays;
 
 public class UniquePath2 {
-    public int memoization(int[][] matrix) {
+    public static int memoization(int[][] matrix) {
         int row = matrix.length;
         int col = matrix[0].length;
         int[][] dp = new int[row][col];
@@ -41,7 +41,7 @@ public class UniquePath2 {
         return memoizationHelper(matrix, row - 1, col - 1, dp);
     }
 
-    public int memoizationHelper(int[][] matrix, int r, int c, int[][] dp) {
+    public static int memoizationHelper(int[][] matrix, int r, int c, int[][] dp) {
         if (r < 0 || c < 0) return 0;
         if (matrix[r][c] == 1) return 0;
         if (r == 0 && c == 0) return 1;
@@ -52,7 +52,7 @@ public class UniquePath2 {
         return dp[r][c];
     }
 
-    public int tabulation(int[][] matrix) {
+    public static int tabulation(int[][] matrix) {
         int row = matrix.length;
         int col = matrix[0].length;
         int[][] dp = new int[row][col];
@@ -79,7 +79,7 @@ public class UniquePath2 {
         return dp[row - 1][col - 1];
     }
 
-    public int tabulationSpaceOptimized(int[][] matrix) {
+    public static int tabulationSpaceOptimized(int[][] matrix) {
         int row = matrix.length;
         int col = matrix[0].length;
         if (matrix[0][0] == 1) return 0;

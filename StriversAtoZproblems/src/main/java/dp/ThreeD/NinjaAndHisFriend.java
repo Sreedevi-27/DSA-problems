@@ -43,11 +43,8 @@ m == number of columns in matrix
 package dp.ThreeD;
 
 public class NinjaAndHisFriend {
-    public int cherryPickup(int[][] matrix) {
-        return memoization(matrix);
-    }
 
-    public int memoization(int[][] matrix) {
+    public static int memoization(int[][] matrix) {
         int row = matrix.length;
         int col = matrix[0].length;
         int[][][] dp = new int[row][col][col];
@@ -59,7 +56,7 @@ public class NinjaAndHisFriend {
         return memoizationHelper(matrix, dp, 0, 0, col - 1, row, col);
     }
 
-    public int memoizationHelper(int[][] matrix, int[][][] dp, int row, int col1, int col2, int r, int c) {
+    public static int memoizationHelper(int[][] matrix, int[][][] dp, int row, int col1, int col2, int r, int c) {
         if (col1 < 0 || col1 >= c || col2 < 0 || col2 >= c) return (int) Math.pow(-10, 9);
         if (row == r - 1) {
             if (col1 == col2)
@@ -87,7 +84,7 @@ public class NinjaAndHisFriend {
         return dp[row][col1][col2];
     }
 
-    public int tabulation(int[][] matrix) {
+    public static int tabulation(int[][] matrix) {
         int row = matrix.length;
         int col = matrix[0].length;
         int[][][] dp = new int[row][col][col];
@@ -100,7 +97,6 @@ public class NinjaAndHisFriend {
             }
         }
 
-
         for (int i = row - 2; i >= 0; i--) {
             for (int j1 = 0; j1 < col; j1++) {
                 for (int j2 = 0; j2 < col; j2++) {
@@ -112,9 +108,9 @@ public class NinjaAndHisFriend {
                             // boundary check
                             if (j1 + di >= 0 && j1 + di < col && j2 + dj >= 0 && j2 + dj < col) {
                                 if (j1 == j2)
-                                    result = Math.max(result, matrix[i][j1] + dp[i][j1 + di][j2 + dj]);
+                                    result = Math.max(result, matrix[i][j1] + dp[i+1][j1 + di][j2 + dj]);
                                 else
-                                    result = Math.max(result, matrix[i][j1] + matrix[i][j2] + dp[i][j1 + di][j2 + dj]);
+                                    result = Math.max(result, matrix[i][j1] + matrix[i][j2] + dp[i+1][j1 + di][j2 + dj]);
                             }
                         }
                     }
@@ -125,7 +121,7 @@ public class NinjaAndHisFriend {
         return dp[0][0][col-1];
     }
 
-    public int tabulationSpaceOptimised(int[][] matrix){
+    public static int tabulationSpaceOptimised(int[][] matrix){
         int row = matrix.length;
         int col = matrix[0].length;
         int[][] prev = new int[col][col];

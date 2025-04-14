@@ -80,17 +80,17 @@ public class FrogJumpKSteps {
     public static int tabulationSpaceOptimised(int k, int[] height){
         // we can optimise the Tabulation solution from  O(N) to O(K) since, we need last K updated values for proceeding
         // with the next operation
-        int[] dp = new int[k];
+        int[] dp = new int[k+1];
         dp[0] = 0;
         for(int i=1; i<height.length; i++){
             int min = Integer.MAX_VALUE;
             for(int j=1; j<=k && i-j>=0; j++){
-                int jump = dp[j-1] + Math.abs(height[i]-height[i-j]);
+                int jump = dp[(i - j) % (k + 1)] + Math.abs(height[i]-height[i-j]);
                 min = Math.min(min, jump);
             }
-            dp[i] = min;
+            dp[i % (k + 1)] = min;
         }
-        return dp[height.length-1];
+        return dp[(height.length - 1) % (k + 1)];
     }
 
 }

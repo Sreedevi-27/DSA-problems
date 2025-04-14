@@ -47,4 +47,18 @@ public class ClimbingStarsTest {
         assertEquals(expectedOutput, actualOutput);
     }
 
+    @Test
+    public void testTabulationSpaceOptimizedSolution(){
+        int expectedOutput = 3;
+        int actualOutput = ClimbingStars.tabulationSpaceOptimized(3);
+        assertEquals(expectedOutput, actualOutput);
+    }
+
+    @Test
+    public void testTabulationSpaceOptimizedSolutionLargeOutput(){
+        int expectedOutput = 1836311903;
+        int actualOutput = ClimbingStars.tabulationSpaceOptimized(45);
+        assertEquals(expectedOutput, actualOutput);
+    }
+
 }
