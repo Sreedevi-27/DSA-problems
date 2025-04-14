@@ -54,6 +54,13 @@ public class GeeksTraining {
         return maximum;
     }
 
+    public static void main(String[] args) {
+        int[][] mat = new int[][]{
+                {10, 40, 70},
+                {20, 50, 80},
+                {30, 60, 90}};
+        System.out.println(memoization(mat));
+    }
 
     public static int memoization(int arr[][]) {
         int row = arr.length;
@@ -61,20 +68,20 @@ public class GeeksTraining {
         for(int i=0; i<row; i++){
             for(int j=0; j<4; j++) dp[i][j] = -1;
         }
-        return memoizationHelper(arr,row-1,3, dp);
+
+        int ans = memoizationHelper(arr,row-1,3, dp);
+        for(int i=0; i<row; i++){
+            for(int j=0; j<4; j++){
+                System.out.print(dp[i][j] +" *** ");
+            }
+            System.out.println();
+        }
+        return ans;
     }
 
 
     public static int memoizationHelper(int[][] arr, int index, int last, int[][] dp){
-        if(index==0){
-            int maximum = 0;
-            for(int i=0; i<3; i++){
-                if(i!=last) maximum = Math.max(maximum, arr[0][i]);
-            }
-            return maximum;
-        }
-
-
+        if(index<0) return 0;
         if(dp[index][last] != -1) return dp[index][last];
 
         int maximum=0;

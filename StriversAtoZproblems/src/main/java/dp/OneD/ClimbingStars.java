@@ -68,4 +68,15 @@ public class ClimbingStars {
         return dp[n];
     }
 
+    public int tabulationSpaceOptimized(int n){
+        int prev1 = 1;
+        int prev2 = 1;
+        int result = 0;
+        for(int i=2; i<=n; i++){
+            result = prev1+prev2;
+            prev1 = prev2;
+            prev2 = result;
+        }
+        return prev2;
+    }
 }
